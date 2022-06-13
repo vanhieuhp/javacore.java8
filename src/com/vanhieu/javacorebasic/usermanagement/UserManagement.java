@@ -1,7 +1,4 @@
-package com.vanhieu.javacorebasic.test1;
-
-import com.vanhieu.javacorebasic.learnclass.User;
-import com.vanhieu.javacorebasic.learnclass.UsernameAndAge;
+package com.vanhieu.javacorebasic.usermanagement;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

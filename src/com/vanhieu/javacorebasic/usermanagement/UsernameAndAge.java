@@ -1,4 +1,4 @@
-package com.vanhieu.javacorebasic.learnclass;
+package com.vanhieu.javacorebasic.usermanagement;
 
 import java.util.Objects;
 

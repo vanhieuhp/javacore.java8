@@ -1,8 +1,8 @@
 package com.vanhieu;
 
-import com.vanhieu.javacorebasic.learnclass.User;
-import com.vanhieu.javacorebasic.learnclass.UsernameAndAge;
-import com.vanhieu.javacorebasic.test1.UserManagement;
+import com.vanhieu.javacorebasic.usermanagement.User;
+import com.vanhieu.javacorebasic.usermanagement.UsernameAndAge;
+import com.vanhieu.javacorebasic.usermanagement.UserManagement;
 
 import java.io.IOException;
 import java.util.*;

@@ -10,6 +10,8 @@ public class UserManagement {
 
     private final List<String> CHARACTER_NAME = Arrays.asList("f", "r", "u", "i", "t");
     private final List<String> GENDER_LIST = Arrays.asList("female", "male");
+    private final int MAX_AGE = 22;
+    private final int MIN_AGE = 20;
 
     public UserManagement() {
     }
@@ -28,7 +30,7 @@ public class UserManagement {
     private User createUserInfo(int i) {
         User user = new User();
         user.setId(i);
-        user.setAge((int)(Math.random() * (22 - 20 + 1) + 20));
+        user.setAge((int)(Math.random() * (MAX_AGE - MIN_AGE + 1) + MIN_AGE));
         user.setGender(GENDER_LIST.get((int) (Math.random() * (GENDER_LIST.size()))));
         return user;
     }
@@ -107,21 +109,35 @@ public class UserManagement {
     }
 
 //    write file
-    public void writeToFile(String fileName, List<User> userList) throws IOException {
+    public void writeToFile(String fileName, List<User> userList) {
+
+        BufferedWriter writer = null;
+
         try {
             // Step 1: Create an object of BufferedWriter
-            BufferedWriter f_writer = new BufferedWriter(new FileWriter(fileName));
+            writer = new BufferedWriter(new FileWriter(fileName));
+
             // Step 2: Write text(content) to file
+            BufferedWriter finalWriter = writer;
             userList.stream().forEach(user -> {
                 try {
-                    f_writer.write(user.toString() + "\n");
+                    finalWriter.write(user.toString()  + "\n");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            f_writer.close();
+
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
